@@ -30,6 +30,7 @@
 					aria-controls="navbar"></button>
 				<ul class="nav navbar-nav">
 					<li><a href="/patientlogin">Login as patient</a></li>
+					<li><a href="/doctorlogin">Login as doctor</a></li>
 					<li><a href="/register">New Registration</a></li>
 					<li><a href="/show-users">All Users</a></li>
 				</ul>
@@ -55,58 +56,60 @@
 						<div class="form-group">
 							<label class="control-label col-md-3">Username</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" name="pusername" placeholder ="Enter your name"
-									value="${user.pusername }" />
+								<input type="text" class="form-control" name="pusername"
+									placeholder="Enter your name" value="${user.pusername }" />
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label col-md-3">Age</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" name="page" placeholder ="Enter your age"
-									value="${user.page }" />
+								<input type="text" class="form-control" name="page"
+									placeholder="Enter your age" value="${user.page }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-md-3">Gender</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" name="pgender" placeholder ="Enter male or female"
-									value="${user.pgender }" />
+								<input type="text" class="form-control" name="pgender"
+									placeholder="Enter male or female" value="${user.pgender }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-md-3">Blood Group</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" name="pbloodgroup" placeholder ="Enter your blood group"
+								<input type="text" class="form-control" name="pbloodgroup"
+									placeholder="Enter your blood group"
 									value="${user.pbloodgroup }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-md-3">Address</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" name="paddress" placeholder ="Enter your address"
-									value="${user.paddress }" />
+								<input type="text" class="form-control" name="paddress"
+									placeholder="Enter your address" value="${user.paddress }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-md-3">E-mail</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" name="pemail" placeholder =" Email@gmail.com"
-									value="${user.pemail }" />
+								<input type="text" class="form-control" name="pemail"
+									placeholder=" Email@gmail.com" value="${user.pemail }" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Contact No</label> 
+							<label class="control-label col-md-3">Contact No</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" name="pcontactno" placeholder ="Enter your Contact number"
+								<input type="text" class="form-control" name="pcontactno"
+									placeholder="Enter your Contact number"
 									value="${user.pcontactno }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-md-3">Password</label>
 							<div class="col-md-7">
-								<input type="password" class="form-control" name="ppassword" placeholder ="Enter your password"
-									value="${user.ppassword }" />
+								<input type="password" class="form-control" name="ppassword"
+									placeholder="Enter your password" value="${user.ppassword }" />
 							</div>
 						</div>
 						<div class="form-group ">
@@ -128,14 +131,16 @@
 						<div class="form-group">
 							<label class="control-label col-md-3">Patient Username</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" placeholder="Enter your username" name="pusername"
+								<input type="text" class="form-control"
+									placeholder="Enter your username" name="pusername"
 									value="${user.pusername }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-md-3">Patient Password</label>
 							<div class="col-md-7">
-								<input type="password" class="form-control" placeholder="Enter your password" name="ppassword"
+								<input type="password" class="form-control"
+									placeholder="Enter your password" name="ppassword"
 									value="${user.ppassword }" />
 							</div>
 						</div>
@@ -144,9 +149,38 @@
 						</div>
 					</form>
 				</div>
-
-
-
+			</c:when>
+			<c:when test="${mode=='MODE_DOCTORLOGIN' }">
+				<div class="container text-center">
+					<h3>Doctor Login</h3>
+					<hr>
+					<form class="form-horizontal" method="POST" action="/login-doctor">
+						<c:if test="${not empty error}">
+							<div class="alert alert-danger">
+								<c:out value="${ error}"></c:out>
+							</div>
+						</c:if>
+						<div class="form-group">
+							<label class="control-label col-md-3">Doctor Username</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control"
+									placeholder="Enter your username" name="dusername"
+									value="${doctor.dusername }" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Doctor Password</label>
+							<div class="col-md-7">
+								<input type="password" class="form-control"
+									placeholder="Enter your password" name="dpassword"
+									value="${doctor.dpassword }" />
+							</div>
+						</div>
+						<div class="form-group ">
+							<input type="submit" class="btn btn-primary" value="Login" />
+						</div>
+					</form>
+				</div>
 			</c:when>
 		</c:choose>
 	</div>

@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="s"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,7 +12,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Expires" content="sat, 01 Dec 2001 00:00:00 GMT">
-<title>Vmedico | Home</title>
+<title>Vmedico | Patient Portal</title>
 
 <link href="static/css/bootstrap.min.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet">
@@ -19,7 +22,8 @@
 <![endif]-->
 
 </head>
-<body>
+
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="50">
 
 	<div role="navigation">
 		<nav class="navbar navbar-inverse ">
@@ -30,6 +34,7 @@
 					aria-controls="navbar"></button>
 				<ul class="nav navbar-nav">
 					<li><a href="/patientlogin">Login as patient</a></li>
+					<li><a href="/doctorlogin">Login as doctor</a></li>
 					<li><a href="/register">New Registration</a></li>
 					<li><a href="/show-users">All Users</a></li>
 				</ul>
@@ -37,10 +42,119 @@
 		</nav>
 	</div>
 
-	<div class="container" id="homediv">
-		<div class="jumbotron text-center">
-			<h1>Logged in</h1>
-			<h3>Virtual Health Asssistant</h3>
+
+	<!-- Scroll spy -->
+	<div class="container">
+		<h2>Menu</h2>
+		<div class="container-fluid">
+			<div class="row">
+				<nav class="col-sm-3 col-4" id="myScrollspy">
+					<ul class="nav nav-pills flex-column">
+						<li class="nav-item"><a class="nav-link active"
+							href="#bookAppointment">Book doctor appointment</a></li>
+						<li class="nav-item"><a class="nav-link" href="#section2">Section
+								2</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Section
+								3</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#section31">dropdown-item 1</a> <a
+									class="dropdown-item" href="#section32">dropdown-item 2</a>
+							</div></li>
+						<li class="nav-item"><a class="nav-link" href="#section4">Section
+								4</a></li>
+					</ul>
+				</nav>
+
+				<div class="col-sm-9 col-8">
+
+					<s:form method="POST" modelAttribute="email" action="${pageContext.request.contextPath }/patientPage">
+						<div id="bookAppointment">
+							<h2>Appointment from</h2>
+							<hr>
+							<form class="form-horizontal" method="POST" action="save-user">
+								<div class="form-group">
+									<label class="control-label col-md-3">Patient username</label>
+									<div class="col-md-5">
+										<input type="text" class="form-control" name="pusername"
+											placeholder="Enter your name" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-md-3">Patient email</label>
+									<div class="col-md-5">
+										<input type="text" class="form-control" name="pemail"
+											placeholder="Enter your email" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital name</label>
+									<div class="col-md-5">
+										<input type="text" class="form-control" name="phospitalname"
+											placeholder="Select your hospital name" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Doctor name</label>
+									<div class="col-md-5">
+										<input type="text" class="form-control" name="pdoctorname"
+											placeholder="Select your doctor name" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Patient symptoms
+										or cause of appointment</label>
+									<div class="col-md-5">
+										<textarea rows="5" cols="100" class="form-control"
+											name="psymptoms" placeholder="Enter your symptoms"></textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Slot</label>
+									<div class="col-md-5">
+										<input type="text" class="form-control" name="pslot"
+											placeholder="Select your slot" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Contact No</label>
+									<div class="col-md-5">
+										<input type="text" class="form-control"
+											name="pappointmentdate"
+											placeholder="Select your appointment date" />
+									</div>
+								</div>
+								<div class="form-group text-center ">
+									<input type="submit" class="btn btn-primary" value="Book" />
+								</div>
+							</form>
+						</div>
+					</s:form>
+				</div>
+
+				<hr>
+				<div id="section2">
+					<h1>This is Section 2</h1>
+					<p>Content for section #2</p>
+				</div>
+
+				<div id="section31">
+					<h1>This is Section 3.1</h1>
+					<p>Content for section #3.1</p>
+				</div>
+
+				<div id="section32">
+					<h1>This is Section 3.2</h1>
+					<p>Content for section #3.2</p>
+				</div>
+
+				<div id="section4">
+					<h1>This is Section 4</h1>
+					<p>Content for section #4</p>
+				</div>
+
+			</div>
 		</div>
 	</div>
 
@@ -96,4 +210,6 @@
 	<script src="static/js/jquery-1.11.1.min.js"></script>
 	<script src="static/js/bootstrap.min.js"></script>
 </body>
+
+
 </html>
