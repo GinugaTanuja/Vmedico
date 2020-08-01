@@ -19,13 +19,19 @@ public class emailController {
 	}
 
 	@RequestMapping("/send")
-	public String sendMail(@RequestParam("pusername") String pusername, @RequestParam("pemail") String pemail,
-			@RequestParam("pslot") String pslot, @RequestParam("pappointmentdate") String pappointmentdate,
-			@RequestParam("phospitalname") String phospitalname) {
+	public String sendMail(@RequestParam("patientemail") String patientemail,
+			@RequestParam("patientusername") String patientusername,
+			@RequestParam("patientsymptoms") String patientsymptoms,
+			@RequestParam("patienthospitalname") String patienthospitalname,
+			@RequestParam("patientdoctorname") String patientdoctorname,
+			@RequestParam("patientslot") String patientslot,
+			@RequestParam("patientappointmentdate") String patientappointmentdate) {
 		SimpleMailMessage msg = new SimpleMailMessage();
-		msg.setTo(pemail);
-		msg.setSubject(pusername + "'s appointment");
-		msg.setText("Dear " + pusername + ",\n" + "Your appointment has been booked at " + pslot + " on " + pappointmentdate + ".\n" + "Hope to see you at " + phospitalname+".\n"+"Take care,\nTeam Vmedico");
+		msg.setTo(patientemail);
+		msg.setSubject(patientusername + "'s appointment");
+		msg.setText("dear " + patientusername + ", \n\n" + "  Your appontment with " + patientdoctorname
+				+ " has been booked at " + patientslot + " on " + patientappointmentdate + ".\n\n"
+				+ "  Hope to see you at " + patienthospitalname + ".\n\n" + " Take care,\n Team Vmedio");
 		JavaMailSender.send(msg);
 		return "patientPage";
 	}
