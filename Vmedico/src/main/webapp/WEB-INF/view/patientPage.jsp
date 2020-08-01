@@ -3,8 +3,6 @@
 
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="s"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -20,6 +18,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
 
 </head>
 
@@ -48,7 +48,7 @@
 		<h2>Menu</h2>
 		<div class="container-fluid">
 			<div class="row">
-				<nav class="col-sm-3 col-4" id="myScrollspy">
+				<nav class="col-sm-2 col-3" id="myScrollspy">
 					<ul class="nav nav-pills flex-column">
 						<li class="nav-item"><a class="nav-link active"
 							href="#bookAppointment">Book doctor appointment</a></li>
@@ -66,71 +66,49 @@
 					</ul>
 				</nav>
 
-				<div class="col-sm-9 col-8">
-
-					<s:form method="POST" modelAttribute="email" action="${pageContext.request.contextPath }/patientPage">
-						<div id="bookAppointment">
-							<h2>Appointment from</h2>
-							<hr>
-							<form class="form-horizontal" method="POST" action="save-user">
-								<div class="form-group">
-									<label class="control-label col-md-3">Patient username</label>
-									<div class="col-md-5">
-										<input type="text" class="form-control" name="pusername"
-											placeholder="Enter your name" />
+				<div class="col-sm-10 col-9">
+					<div class="container" style="margin-top: 10px;">
+						<div class="row"
+							style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 0 auto; padding: 20px;">
+							<div class="col-sm-12">
+								<h2 class="myclass">Appointment Form</h2>
+								<form action="/send" method="post">
+									<div class="form-group">
+										<label>Patient Username</label> <input type="text"
+											class="form-control" name="pusername"
+											placeholder="Enter your name">
 									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="control-label col-md-3">Patient email</label>
-									<div class="col-md-5">
-										<input type="text" class="form-control" name="pemail"
-											placeholder="Enter your email" />
+									<div class="form-group">
+										<label>Patient email</label> <input type="text"
+											class="form-control" name="pemail"
+											placeholder="Enter your patient">
 									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-3">Hospital name</label>
-									<div class="col-md-5">
-										<input type="text" class="form-control" name="phospitalname"
-											placeholder="Select your hospital name" />
+									<div class="form-group">
+										<label>Hospital name</label> <input type="text"
+											class="form-control" name="phospitalname" placeholder="Select your hospital name">
 									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-3">Doctor name</label>
-									<div class="col-md-5">
-										<input type="text" class="form-control" name="pdoctorname"
-											placeholder="Select your doctor name" />
+									<div class="form-group">
+										<label>Doctor name</label> <input type="text"
+											class="form-control" name="pdoctorname" placeholder="Select your doctor's name">
 									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-3">Patient symptoms
-										or cause of appointment</label>
-									<div class="col-md-5">
-										<textarea rows="5" cols="100" class="form-control"
-											name="psymptoms" placeholder="Enter your symptoms"></textarea>
+									<div class="form-group">
+										<label for="psymptoms">Symptoms</label>
+										<textarea class="form-control" rows="5" name="symptoms"></textarea>
 									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-3">Slot</label>
-									<div class="col-md-5">
-										<input type="text" class="form-control" name="pslot"
-											placeholder="Select your slot" />
+									<div class="form-group">
+										<label>Appointment slot</label> <input type="text"
+											class="form-control" name="pslot" placeholder="Enter among morning / afternoon / evening">
 									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-3">Contact No</label>
-									<div class="col-md-5">
-										<input type="text" class="form-control"
-											name="pappointmentdate"
-											placeholder="Select your appointment date" />
+									<div class="form-group">
+										<label>Appointment date</label> <input type="text"
+											class="form-control" name="phospitalname" placeholder="Enter as (dd-mm-yyyy)">
 									</div>
-								</div>
-								<div class="form-group text-center ">
-									<input type="submit" class="btn btn-primary" value="Book" />
-								</div>
-							</form>
+									<button type="submit" class="btn btn-primary">Book my appointment</button>
+									<button type="reset" class="btn btn-primary">Cancel</button>
+								</form>
+							</div>
 						</div>
-					</s:form>
+					</div>
 				</div>
 
 				<hr>
