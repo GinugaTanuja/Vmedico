@@ -64,8 +64,8 @@
 							<img src="/images/carousel1.jpg"
 								style="width: 1200px; height: 500px;" alt="doctor1">
 							<div class="carousel-caption d-none d-md-block">
-								<h3 style="color:gray;">Join us for our better future !</h3>
-								<p style="color:gray;"> By Vmedico</p>
+								<h3 style="color: gray;">Join us for our better future !</h3>
+								<p style="color: gray;">By Vmedico</p>
 							</div>
 						</div>
 
@@ -73,8 +73,8 @@
 							<img src="/images/carousel2.jpg"
 								style="width: 1200px; height: 500px;" alt="doctor2">
 							<div class="carousel-caption d-none d-md-block">
-								<h3 style="color:gray;">For the future generation</h3>
-								<p style="color:gray;"> By Vmedico</p>
+								<h3 style="color: gray;">For the future generation</h3>
+								<p style="color: gray;">By Vmedico</p>
 							</div>
 						</div>
 
@@ -82,16 +82,16 @@
 							<img src="/images/carousel3.jpg"
 								style="width: 1200px; height: 500px;" alt="heathcare1">
 							<div class="carousel-caption d-none d-md-block">
-								<h3 style="color:gray;">Latest Technologies</h3>
-								<p style="color:gray;"> By Vmedico</p>
+								<h3 style="color: gray;">Latest Technologies</h3>
+								<p style="color: gray;">By Vmedico</p>
 							</div>
 						</div>
 						<div class="item">
 							<img src="/images/carousel4.jpg"
 								style="width: 1200px; height: 500px;" alt="heathcare2">
 							<div class="carousel-caption d-none d-md-block">
-								<h3 style="color:gray;">Worlds best service</h3>
-								<p style="color:gray;"> By Vmedico</p>
+								<h3 style="color: gray;">Worlds best service</h3>
+								<p style="color: gray;">By Vmedico</p>
 							</div>
 						</div>
 					</div>
@@ -108,6 +108,75 @@
 					</a>
 				</div>
 
+				<!-- hospital , health care providers & testing labs  -->
+
+				<div class="container">
+					<div class="row row-content align-items-center">
+						<div class="col-sm-4 col-md-3 flex-last">
+							<h3>Hospitals</h3>
+						</div>
+						<div class="col-sm col-md flex-first">
+							<div class="media">
+								<img class="d-flex mr-3 img-thumbnail align-self-center"
+									src="/images/hospitalIcon.jpg"
+									style="width: 150px; height: 150px;" alt="Hospitals">
+								<div class="media-body">
+									<h2 class="mt-0">
+										Hospitals with best equipment <span class="badge badge-danger">best
+											services</span> <span class="badge badge-pill badge-default">24/7
+											services</span>
+									</h2>
+									<p class="hidden-xs-down">Look into our best hospitals in
+										your nearest location.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row row-content align-items-center">
+						<div class="col-sm-4 col-md-3">
+							<h3>Health care services</h3>
+						</div>
+						<div class="col-sm col-md">
+							<div class="media">
+								<img
+									class="d-flex mr-3 img-thumbnail align-self-center flex-last"
+									src="/images/heathCareProvidersIcon.jpg"
+									style="width: 150px; height: 150px;"
+									alt="Health care providers">
+								<div class="media-body flex-first">
+									<h2 class="mt-0">
+										Care takers, Health insurance providers etc. <span
+											class="badge badge-danger">home delivery</span>
+									</h2>
+									<p class="hidden-xs-down">Provides a wide range of services
+										that can support you and your family.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row row-content align-items-center">
+						<div class="col-sm-4 col-md-3 flex-last">
+							<h3>Testing laboratories</h3>
+						</div>
+						<div class="col-sm col-md flex-first">
+							<div class="media">
+								<img class="d-flex mr-3 img-thumbnail align-self-center"
+									src="/images/testingLaboratriesIcon.jpg"
+									style="width: 150px; height: 150px;" alt="Testing laboratries">
+								<div class="media-body">
+									<h2 class="mt-0">
+										Diagnostic centers <span class="badge badge-danger">new
+											technologies</span>
+									</h2>
+									<p class="hidden-xs-down">We bring to you a offers a wide
+										range of diagnostic services.</p>
+								</div>
+							</div>
+						</div>
+					</div>
 			</c:when>
 			<c:when test="${mode=='MODE_REGISTER' }">
 				<div class="container text-center">
@@ -278,75 +347,7 @@
 			</c:when>
 		</c:choose>
 	</div>
-	<!-- hospital , health care providers & testing labs  -->
 
-	<div class="container">
-		<div class="row row-content align-items-center">
-			<div class="col-sm-4 col-md-3 flex-last">
-				<h3>Hospitals</h3>
-			</div>
-			<div class="col-sm col-md flex-first">
-				<div class="media">
-					<img class="d-flex mr-3 img-thumbnail align-self-center"
-						src="/images/hospitalIcon.jpg"
-						style="width: 150px; height: 150px;" alt="Hospitals">
-					<div class="media-body">
-						<h2 class="mt-0">
-							Hospitals with best equipment <span class="badge badge-danger">best
-								services</span> <span class="badge badge-pill badge-default">24/7
-								services</span>
-						</h2>
-						<p class="hidden-xs-down">Look into our best hospitals in your
-							nearest location.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row row-content align-items-center">
-			<div class="col-sm-4 col-md-3">
-				<h3>Health care services</h3>
-			</div>
-			<div class="col-sm col-md">
-				<div class="media">
-					<img class="d-flex mr-3 img-thumbnail align-self-center flex-last"
-						src="/images/heathCareProvidersIcon.jpg"
-						style="width: 150px; height: 150px;" alt="Health care providers">
-					<div class="media-body flex-first">
-						<h2 class="mt-0">
-							Care takers, Health insurance providers etc. <span
-								class="badge badge-danger">home delivery</span>
-						</h2>
-						<p class="hidden-xs-down">Provides a wide range of services
-							that can support you and your family.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="row row-content align-items-center">
-			<div class="col-sm-4 col-md-3 flex-last">
-				<h3>Testing laboratories</h3>
-			</div>
-			<div class="col-sm col-md flex-first">
-				<div class="media">
-					<img class="d-flex mr-3 img-thumbnail align-self-center"
-						src="/images/testingLaboratriesIcon.jpg"
-						style="width: 150px; height: 150px;" alt="Testing laboratries">
-					<div class="media-body">
-						<h2 class="mt-0">
-							Diagnostic centers <span class="badge badge-danger">new
-								technologies</span>
-						</h2>
-						<p class="hidden-xs-down">We bring to you a offers a wide
-							range of diagnostic services.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</div>
 
 
 
