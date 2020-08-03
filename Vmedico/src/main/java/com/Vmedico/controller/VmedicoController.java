@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Vmedico.model.User;
 import com.Vmedico.model.admin;
@@ -99,5 +101,32 @@ public class VmedicoController {
 		}
 
 	}
+	
+	@RequestMapping("/addDoctor")
+	public String addDoctor(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_ADDDOCTOR");
+		return "adminPage";
+	}
 
+	@PostMapping("/save-doctor")
+	public String registerdoctor(@ModelAttribute doctor doctor, BindingResult bindingResult, HttpServletRequest request) {
+		doctorService.saveMyDoctor(doctor);
+		request.setAttribute("mode", "MODE_ADDDOCTOR");
+		return "adminPage";
+	}
+	
+	@GetMapping("/show-doctors")
+	public String showAllDoctors( HttpServletRequest request) {
+		request.setAttribute("doctors", doctorService.showAllDotors());
+		request.setAttribute("mode", "MODE_EDITDOCTOR");
+		return "adminPage";
+	}
+
+	@RequestMapping("/delete-doctor")
+	public String deleteDoctor(@RequestParam int duprn,HttpServletRequest request) {
+		doctorService.deleteMyDoctor(duprn);
+		request.setAttribute("doctors", doctorService.showAllDotors());
+		request.setAttribute("mode", "MODE_EDITDOCTOR");
+		return "adminPage";
+	}
 }

@@ -300,7 +300,7 @@
 				<div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1">
 					<h5>Links</h5>
 					<ul class="list-unstyled">
-						<li><a href="#">Home</a></li>
+						<li><a href="/home">Home</a></li>
 						<li><a href="#">About</a></li>
 						<li><a href="#">Menu</a></li>
 						<li><a href="#">Contact</a></li>

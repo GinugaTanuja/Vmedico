@@ -70,7 +70,7 @@
 		<div class="row"
 			style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 0 auto; padding: 20px;">
 			<div class="col-sm-12">
-				<h2 class="myclass">Information</h2>
+				<h2 class="myclass">Appointment form</h2>
 				<form action="/send" method="post">
 				<div class="form-group">
 						<label>Patient username</label> <input type="text" class="form-control"

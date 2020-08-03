@@ -37,6 +37,108 @@
 			</div>
 		</nav>
 	</div>
+
+	<!-- Scroll spy -->
+	<div class="container">
+		<h2>Menu</h2>
+		<div class="container-fluid">
+			<div class="row">
+				<nav class="col-sm-3 col-4" id="myScrollspy">
+					<ul class="nav nav-pills flex-column">
+						<li class="nav-item"><a class="nav-link active"
+							href="#bookAppointment">Assign prescriptions</a></li>
+						<li class="nav-item"><a class="nav-link" href="#section2">My Appointments
+						</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Section
+								3</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#section31">dropdown-item 1</a> <a
+									class="dropdown-item" href="#section32">dropdown-item 2</a>
+							</div></li>
+						<li class="nav-item"><a class="nav-link" href="#section4">Section
+								4</a></li>
+					</ul>
+				</nav>
+
+				<div class="col-sm-9 col-8">
+					<div class="container" style="margin-top: 10px;">
+						<div class="row"
+							style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 0 auto; padding: 20px;">
+							<div class="col-sm-12">
+								<h2 class="myclass">Assign prescription form</h2>
+								<form action="/send" method="post">
+									<div class="form-group">
+										<label>Patient username</label> <input type="text"
+											class="form-control" name="patientusername"
+											placeholder="Enter your username">
+									</div>
+									<div class="form-group">
+										<label>Patient email</label> <input type="text"
+											class="form-control" name="patientemail"
+											placeholder="Enter your Email">
+									</div>
+									<div class="form-group">
+										<label>Hospital name</label> <input type="text"
+											class="form-control" name="patienthospitalname"
+											placeholder="Select your hospital name">
+									</div>
+									<div class="form-group">
+										<label>Doctor name</label> <input type="text"
+											class="form-control" name="patientdoctorname"
+											placeholder="Select your doctor name">
+									</div>
+									<div class="form-group">
+										<label for="content">Patient symptoms</label>
+										<textarea class="form-control" rows="3" name="patientsymptoms"></textarea>
+									</div>
+									<div class="form-group">
+										<label>Appointment slot</label> <input type="text"
+											class="form-control" name="patientslot"
+											placeholder="Enter among morning / afternoon / evening">
+									</div>
+									<div class="form-group">
+										<label>Appointment date</label> <input type="text"
+											class="form-control" name="patientappointmentdate"
+											placeholder="Enter your appointment date">
+									</div>
+									<button type="submit" class="btn btn-primary">Book my
+										appointment</button>
+									<button type="reset" class="btn btn-primary">Cancel</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<hr>
+				<div id="section2">
+					<h1>This is Section 2</h1>
+					<p>Content for section #2</p>
+				</div>
+
+				<div id="section31">
+					<h1>This is Section 3.1</h1>
+					<p>Content for section #3.1</p>
+				</div>
+
+				<div id="section32">
+					<h1>This is Section 3.2</h1>
+					<p>Content for section #3.2</p>
+				</div>
+
+				<div id="section4">
+					<h1>This is Section 4</h1>
+					<p>Content for section #4</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
 	<hr>
 	<footer class="row-footer">
 		<div class="container">
