@@ -52,8 +52,7 @@
 					<ul class="nav nav-pills flex-column">
 						<li class="nav-item"><a class="nav-link active"
 							href="#bookAppointment">Book doctor appointment</a></li>
-						<li class="nav-item"><a class="nav-link" href="#section2">Section
-								2</a></li>
+						<li class="nav-item"><a class="nav-link" href="#section2">My prescriptions</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Section
 								3</a>

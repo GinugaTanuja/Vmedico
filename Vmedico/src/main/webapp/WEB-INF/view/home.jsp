@@ -2,17 +2,20 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html >
+<html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
-<meta http-equiv="Expires" content="sat, 01 Dec 2001 00:00:00 GMT">
+<meta http-equiv="Expires" content="sat, 01 Dec 1501 00:00:00 GMT">
 <title>Vmedico | Home</title>
 
 <link href="static/css/bootstrap.min.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet">
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -22,7 +25,7 @@
 <body>
 
 	<div role="navigation">
-		<nav class="navbar navbar-expand-sm navbar-inverse  ">
+		<nav class="navbar navbar-inverse navbar-toggleable-sm fixed-top ">
 			<a href="/home" class="navbar-brand">Vmedico</a>
 			<div class="navbar-collapse collapse">
 				<button type="button" class="navbar-toggle collapsed"
@@ -32,7 +35,7 @@
 					<li><a href="/patientlogin">Login as patient</a></li>
 					<li><a href="/doctorlogin">Login as doctor</a></li>
 					<li><a href="/register">New Registration</a></li>
-					<li><a href="/show-users">All Users</a></li>
+					<li><a href="/adminlogin">Admin</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -182,8 +185,114 @@
 					</form>
 				</div>
 			</c:when>
+			<c:when test="${mode=='MODE_ADMINLOGIN' }">
+				<div class="container text-center">
+					<h3>Admin Login</h3>
+					<hr>
+					<form class="form-horizontal" method="POST" action="/login-admin">
+						<c:if test="${not empty error}">
+							<div class="alert alert-danger">
+								<c:out value="${ error}"></c:out>
+							</div>
+						</c:if>
+						<div class="form-group">
+							<label class="control-label col-md-3">Admin Username</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control"
+									placeholder="Enter your username" name="ausername"
+									value="${admin.ausername }" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Admin Password</label>
+							<div class="col-md-7">
+								<input type="password" class="form-control"
+									placeholder="Enter your password" name="apassword"
+									value="${admin.apassword }" />
+							</div>
+						</div>
+						<div class="form-group ">
+							<input type="submit" class="btn btn-primary" value="Login" />
+						</div>
+					</form>
+				</div>
+			</c:when>
 		</c:choose>
 	</div>
+	<!-- hospital , health care providers & testing labs  -->
+
+	<div class="container">
+		<div class="row row-content align-items-center">
+			<div class="col-sm-4 col-md-3 flex-last">
+				<h3>Hospitals</h3>
+			</div>
+			<div class="col-sm col-md flex-first">
+				<div class="media">
+					<img class="d-flex mr-3 img-thumbnail align-self-center"
+						src="/images/hospitalIcon.jpg"
+						style="width: 150px; height: 150px;" alt="Hospitals">
+					<div class="media-body">
+						<h2 class="mt-0">
+							Hospitals with best equipment <span class="badge badge-danger">best
+								services</span> <span class="badge badge-pill badge-default">24/7
+								services</span>
+						</h2>
+						<p class="hidden-xs-down">Look into our best hospitals in your
+							nearest location.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row row-content align-items-center">
+			<div class="col-sm-4 col-md-3">
+				<h3>Health care services</h3>
+			</div>
+			<div class="col-sm col-md">
+				<div class="media">
+					<img class="d-flex mr-3 img-thumbnail align-self-center flex-last"
+						src="/images/heathCareProvidersIcon.jpg"
+						style="width: 150px; height: 150px;" alt="Health care providers">
+					<div class="media-body flex-first">
+						<h2 class="mt-0">
+							Care takers, Health insurance providers etc. <span
+								class="badge badge-danger">home delivery</span>
+						</h2>
+						<p class="hidden-xs-down">Provides a wide range of services
+							that can support you and your family.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row row-content align-items-center">
+			<div class="col-sm-4 col-md-3 flex-last">
+				<h3>Testing laboratories</h3>
+			</div>
+			<div class="col-sm col-md flex-first">
+				<div class="media">
+					<img class="d-flex mr-3 img-thumbnail align-self-center"
+						src="/images/testingLaboratriesIcon.jpg"
+						style="width: 150px; height: 150px;" alt="Testing laboratries">
+					<div class="media-body">
+						<h2 class="mt-0">
+							Diagnostic centers <span class="badge badge-danger">new
+								technologies</span>
+						</h2>
+						<p class="hidden-xs-down">We bring to you a offers a wide
+							range of diagnostic services.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
 	<hr>
 	<footer class="row-footer">
 		<div class="container">

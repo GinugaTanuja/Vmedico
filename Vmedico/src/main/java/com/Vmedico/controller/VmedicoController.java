@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.Vmedico.model.User;
+import com.Vmedico.model.admin;
 import com.Vmedico.model.doctor;
+import com.Vmedico.services.AdminService;
 import com.Vmedico.services.DoctorService;
 import com.Vmedico.services.UserService;
 
@@ -22,6 +24,8 @@ public class VmedicoController {
 	private UserService userService;
 	@Autowired
 	private DoctorService doctorService;
+	@Autowired
+	private AdminService adminService;
 
 	@RequestMapping({ "/home", "/" })
 	public String Home(HttpServletRequest request) {
@@ -59,13 +63,13 @@ public class VmedicoController {
 		}
 
 	}
-	
+
 	@RequestMapping("/doctorlogin")
 	public String DoctorLogin(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_DOCTORLOGIN");
 		return "home";
 	}
-	
+
 	@RequestMapping("/login-doctor")
 	public String LoginDoctor(@ModelAttribute doctor doctor, HttpServletRequest request) {
 		if (doctorService.findByDusernameAndDpassword(doctor.getDusername(), doctor.getDpassword()) != null) {
@@ -73,6 +77,24 @@ public class VmedicoController {
 		} else {
 			request.setAttribute("error", "Invalid username or password. Please enter valid Username or Password");
 			request.setAttribute("mode", "MODE_DOCTORLOGIN");
+			return "home";
+		}
+
+	}
+
+	@RequestMapping("/adminlogin")
+	public String AdminLogin(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_ADMINLOGIN");
+		return "home";
+	}
+
+	@RequestMapping("/login-admin")
+	public String LoginAdmin(@ModelAttribute admin admin, HttpServletRequest request) {
+		if (adminService.findByAusernameAndApassword(admin.getAusername(), admin.getApassword()) != null) {
+			return "adminPage";
+		} else {
+			request.setAttribute("error", "Invalid username or password. Please enter valid Username or Password");
+			request.setAttribute("mode", "MODE_ADMINLOGIN");
 			return "home";
 		}
 
