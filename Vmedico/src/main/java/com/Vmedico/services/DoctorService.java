@@ -25,6 +25,12 @@ public class DoctorService {
 		doctorRepository.save(doctor);
 	}
 
+	public doctor updateDoctor(int duprn) {
+		doctor doctor = doctorRepository.findById(duprn).get();
+		return doctor;
+		
+	}
+	
 	public List<doctor> showAllDotors() {
 		List<doctor> doctors = new ArrayList<doctor>();
 		for (doctor doctor : doctorRepository.findAll()) {

@@ -46,8 +46,11 @@
 		<div class="row row-content align-items-center">
 			<div class="col-sm-4 col-md-3 flex-last">
 				<ul style="list-style: none;">
-					<li><a href="/addDoctor">Add a doctor's detail</a></li>
-					<li><a href="/show-doctors">Edit / remove doctor's detail</a></li>
+					<li><a href="/addDoctor"><span
+							class="glyphicon glyphicon-plus"></span>&nbsp;Add a doctor's detail</a></li>
+					<li><a href="/show-doctors"><span
+							class="glyphicon glyphicon-th-large"></span>&nbsp;Edit / remove doctor's
+							detail</a></li>
 				</ul>
 				<c:choose>
 					<c:when test="${mode=='MODE_ADDDOCTOR' }">
@@ -139,7 +142,7 @@
 						</div>
 					</c:when>
 
-					<c:when test="${mode=='MODE_EDITDOCTOR' }">
+					<c:when test="${mode=='MODE_SHOWDOCTOR' }">
 						<div class="container text-center" id="taskDiv">
 							<h3>Edit / remove doctor's detail</h3>
 							<hr>
@@ -157,28 +160,121 @@
 											<th>E-mail</th>
 											<th>Contact no</th>
 											<th>Password</th>
+											<th>Edit details</th>
 											<th>Delete doctor</th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach var="doctor" items="${doctors}">
 											<tr>
-												<td><c:out value="${doctor.duprn}"/></td>
-												<td><c:out value="${doctor.dusername}"/></td>
-												<td><c:out value="${doctor.dage}"/></td>
-												<td><c:out value="${doctor.dgender}"/></td>
-												<td><c:out value="${doctor.dspecialization}"/></td>
-												<td><c:out value="${doctor.dworkinghospitalid}"/></td>
-												<td><c:out value="${doctor.daddress}"/></td>
-												<td><c:out value="${doctor.demail}"/></td>
-												<td><c:out value="${doctor.dcontactno}"/></td>
-												<td><c:out value="${doctor.dpassword}"/></td>
-												<td><a href="/delete-doctor?duprn=${doctor.duprn}"><span class="glyphicon glyphicon-trash"></span></a></td>
+												<td><c:out value="${doctor.duprn}" /></td>
+												<td><c:out value="${doctor.dusername}" /></td>
+												<td><c:out value="${doctor.dage}" /></td>
+												<td><c:out value="${doctor.dgender}" /></td>
+												<td><c:out value="${doctor.dspecialization}" /></td>
+												<td><c:out value="${doctor.dworkinghospitalid}" /></td>
+												<td><c:out value="${doctor.daddress}" /></td>
+												<td><c:out value="${doctor.demail}" /></td>
+												<td><c:out value="${doctor.dcontactno}" /></td>
+												<td><c:out value="${doctor.dpassword}" /></td>
+												<td><a href="/edit-doctor?duprn=${doctor.duprn}"><span
+														class="glyphicon glyphicon-pencil"></span></a></td>
+												<td><a href="/delete-doctor?duprn=${doctor.duprn}"><span
+														class="glyphicon glyphicon-trash"></span></a></td>
 											</tr>
 										</c:forEach>
 									</tbody>
 								</table>
 							</div>
+						</div>
+					</c:when>
+
+					<c:when test="${mode=='MODE_EDITDOCTOR' }">
+						<div class="container text-center">
+							<h3>Updaate doctor's detail</h3>
+							<hr>
+							<form class="form-horizontal" method="POST" action="save-doctor">
+								<div class="form-group">
+									<label class="control-label col-md-3">uprn</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="duprn"
+											placeholder="Enter name" value="${doctor.duprn }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Username</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="dusername"
+											placeholder="Enter name" value="${doctor.dusername }" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-md-3">Age</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="dage"
+											placeholder="Enter age" value="${doctor.dage }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Gender</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="dgender"
+											placeholder="Enter male or female" value="${doctor.dgender }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Specialization</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="dspecialization"
+											placeholder="Enter specialization"
+											value="${doctor.dspecialization }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Working hospital
+										ID</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control"
+											name="dworkinghospitalid"
+											placeholder="Enter working hospital id"
+											value="${doctor.dworkinghospitalid }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Address</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="daddress"
+											placeholder="Enter address" value="${doctor.daddress }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">E-mail</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="demail"
+											placeholder=" email@gmail.com" value="${doctor.demail }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Contact No</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="dcontactno"
+											placeholder="Enter Contact number"
+											value="${doctor.dcontactno }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Password</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="dpassword"
+											placeholder="Enter your password"
+											value="${doctor.dpassword }" />
+									</div>
+								</div>
+								<div class="form-group ">
+									<input type="submit" class="btn btn-primary" value="Update" />
+								</div>
+							</form>
 						</div>
 					</c:when>
 				</c:choose>

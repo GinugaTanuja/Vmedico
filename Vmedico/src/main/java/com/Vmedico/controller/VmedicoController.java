@@ -112,13 +112,16 @@ public class VmedicoController {
 	public String registerdoctor(@ModelAttribute doctor doctor, BindingResult bindingResult, HttpServletRequest request) {
 		doctorService.saveMyDoctor(doctor);
 		request.setAttribute("mode", "MODE_ADDDOCTOR");
+
+		request.setAttribute("doctors", doctorService.showAllDotors());
+		request.setAttribute("mode", "MODE_SHOWDOCTOR");
 		return "adminPage";
 	}
 	
 	@GetMapping("/show-doctors")
 	public String showAllDoctors( HttpServletRequest request) {
 		request.setAttribute("doctors", doctorService.showAllDotors());
-		request.setAttribute("mode", "MODE_EDITDOCTOR");
+		request.setAttribute("mode", "MODE_SHOWDOCTOR");
 		return "adminPage";
 	}
 
@@ -126,6 +129,13 @@ public class VmedicoController {
 	public String deleteDoctor(@RequestParam int duprn,HttpServletRequest request) {
 		doctorService.deleteMyDoctor(duprn);
 		request.setAttribute("doctors", doctorService.showAllDotors());
+		request.setAttribute("mode", "MODE_SHOWDOCTOR");
+		return "adminPage";
+	}
+	
+	@RequestMapping("/edit-doctor")
+	public String editDoctor(@RequestParam int duprn,HttpServletRequest request) {
+		request.setAttribute("doctor", doctorService.updateDoctor(duprn));
 		request.setAttribute("mode", "MODE_EDITDOCTOR");
 		return "adminPage";
 	}
