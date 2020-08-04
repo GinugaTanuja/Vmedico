@@ -62,7 +62,7 @@
 					<div class="carousel-inner">
 						<div class="item active">
 							<img src="/images/carousel1.jpg"
-								style="width: 1200px; height: 500px;" alt="doctor1">
+								style="width: 1200px; height: 450px;" alt="doctor1">
 							<div class="carousel-caption d-none d-md-block">
 								<h3 style="color: gray;">Join us for our better future !</h3>
 								<p style="color: gray;">By Vmedico</p>
@@ -71,7 +71,7 @@
 
 						<div class="item">
 							<img src="/images/carousel2.jpg"
-								style="width: 1200px; height: 500px;" alt="doctor2">
+								style="width: 1200px; height: 450px;" alt="doctor2">
 							<div class="carousel-caption d-none d-md-block">
 								<h3 style="color: gray;">For the future generation</h3>
 								<p style="color: gray;">By Vmedico</p>
@@ -80,7 +80,7 @@
 
 						<div class="item">
 							<img src="/images/carousel3.jpg"
-								style="width: 1200px; height: 500px;" alt="heathcare1">
+								style="width: 1200px; height: 450px;" alt="heathcare1">
 							<div class="carousel-caption d-none d-md-block">
 								<h3 style="color: gray;">Latest Technologies</h3>
 								<p style="color: gray;">By Vmedico</p>
@@ -88,7 +88,7 @@
 						</div>
 						<div class="item">
 							<img src="/images/carousel4.jpg"
-								style="width: 1200px; height: 500px;" alt="heathcare2">
+								style="width: 1200px; height: 450px;" alt="heathcare2">
 							<div class="carousel-caption d-none d-md-block">
 								<h3 style="color: gray;">Worlds best service</h3>
 								<p style="color: gray;">By Vmedico</p>
@@ -113,7 +113,7 @@
 				<div class="container">
 					<div class="row row-content align-items-center">
 						<div class="col-sm-4 col-md-3 flex-last">
-							<h3>Hospitals</h3>
+							<a href="/hospital" style="font-size: 30px;">Hospitals</a>
 						</div>
 						<div class="col-sm col-md flex-first">
 							<div class="media">

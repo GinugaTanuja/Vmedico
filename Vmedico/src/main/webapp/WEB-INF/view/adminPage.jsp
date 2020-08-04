@@ -44,13 +44,28 @@
 	<div class="container">
 		<h2>Doctor administration</h2>
 		<div class="row row-content align-items-center">
-			<div class="col-sm-4 col-md-3 flex-last">
+			<div class="col-sm-4 col-md-5 flex-last">
 				<ul style="list-style: none;">
 					<li><a href="/addDoctor"><span
-							class="glyphicon glyphicon-plus"></span>&nbsp;Add a doctor's detail</a></li>
-					<li><a href="/show-doctors"><span
-							class="glyphicon glyphicon-th-large"></span>&nbsp;Edit / remove doctor's
+							class="glyphicon glyphicon-plus"></span>&nbsp;Add a doctor's
 							detail</a></li>
+					<li><a href="/show-doctors"><span
+							class="glyphicon glyphicon-th-large"></span>&nbsp;Edit / remove
+							doctor's detail</a></li>
+					<hr>
+					<li><a href="/addHospital"><span
+							class="glyphicon glyphicon-plus"></span>&nbsp;Add a hospital's
+							detail</a></li>
+					<li><a href="/show-hospital"><span
+							class="glyphicon glyphicon-th-large"></span>&nbsp;Edit / remove
+							hospital's detail</a></li>
+					<hr>
+					<li><a href="/addDoctor"><span
+							class="glyphicon glyphicon-plus"></span>&nbsp;Add a testing
+							laboratory's detail</a></li>
+					<li><a href="/show-doctors"><span
+							class="glyphicon glyphicon-th-large"></span>&nbsp;Edit / remove
+							testing laboratory's detail</a></li>
 				</ul>
 				<c:choose>
 					<c:when test="${mode=='MODE_ADDDOCTOR' }">
@@ -191,14 +206,14 @@
 
 					<c:when test="${mode=='MODE_EDITDOCTOR' }">
 						<div class="container text-center">
-							<h3>Updaate doctor's detail</h3>
+							<h3>Update doctor's detail</h3>
 							<hr>
 							<form class="form-horizontal" method="POST" action="save-doctor">
 								<div class="form-group">
 									<label class="control-label col-md-3">uprn</label>
 									<div class="col-md-7">
 										<input type="text" class="form-control" name="duprn"
-											placeholder="Enter name" value="${doctor.duprn }" />
+											placeholder="Enter id" value="${doctor.duprn }" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -278,6 +293,160 @@
 						</div>
 					</c:when>
 				</c:choose>
+				<c:choose>
+					<c:when test="${mode=='MODE_ADDHOSPITAL' }">
+						<div class="container text-center">
+							<h3>Add a new hospital</h3>
+							<hr>
+							<form class="form-horizontal" method="POST"
+								action="save-hospital">
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital ID</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="hid"
+											placeholder="Enter name" value="${hospital.hid }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital name</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="hname"
+											placeholder="Enter name" value="${hospital.hname }" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital address</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="haddress"
+											placeholder="Enter address" value="${hospital.haddress}" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">E-mail</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="hemail"
+											placeholder=" email@gmail.com" value="${hospital.hemail}" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital contact no</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="hcontactno"
+											placeholder="Enter Contact number"
+											value="${hospital.hcontactno }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Password</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="hpassword"
+											placeholder="Enter your password"
+											value="${hospital.hpassword }" />
+									</div>
+								</div>
+								<div class="form-group ">
+									<input type="submit" class="btn btn-primary" value="Add hospital" />
+								</div>
+							</form>
+						</div>
+					</c:when>
+
+					<c:when test="${mode=='MODE_SHOWHOSPITAL' }">
+						<div class="container text-center" id="taskDiv">
+							<h3>Edit / remove hospital's detail</h3>
+							<hr>
+							<div class="table-responsive text-align-center">
+								<table class="table table-striped table-bordered">
+									<thead>
+										<tr>
+											<th>Hospital ID</th>
+											<th>Hospital name</th>
+											<th>Hospital Address</th>
+											<th>Hospital E-mail</th>
+											<th>Hospital Contact no</th>
+											<th>Hospital Password</th>
+											<th>Edit details</th>
+											<th>Delete doctor</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach var="hospital" items="${hospitals}">
+											<tr>
+												<td><c:out value="${hospital.hid}" /></td>
+												<td><c:out value="${hospital.hname}" /></td>
+												<td><c:out value="${hospital.haddress}" /></td>
+												<td><c:out value="${hospital.hemail}" /></td>
+												<td><c:out value="${hospital.hcontactno}" /></td>
+												<td><c:out value="${hospital.hpassword}" /></td>
+												<td><a href="/edit-hospital?hid=${hospital.hid}"><span
+														class="glyphicon glyphicon-pencil"></span></a></td>
+												<td><a href="/delete-hospital?hid=${hospital.hid}"><span
+														class="glyphicon glyphicon-trash"></span></a></td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</c:when>
+
+					<c:when test="${mode=='MODE_EDITHOSPITAL' }">
+						<div class="container text-center">
+							<h3>Update hospital's detail</h3>
+							<hr>
+							<form class="form-horizontal" method="POST" action="save-hospital">
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital id</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="hid"
+											placeholder="Enter id" value="${hospital.hid }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital name</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="hname"
+											placeholder="Enter name" value="${hospital.hname }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital Address</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="haddress"
+											placeholder="Enter address" value="${hospital.haddress }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital E-mail</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="hemail"
+											placeholder=" email@gmail.com" value="${hospital.hemail }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital Contact No</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="hcontactno"
+											placeholder="Enter Contact number"
+											value="${hospital.hcontactno }" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3">Hospital Password</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="hpassword"
+											placeholder="Enter password"
+											value="${hospital.hpassword }" />
+									</div>
+								</div>
+								<div class="form-group ">
+									<input type="submit" class="btn btn-primary" value="Update" />
+								</div>
+							</form>
+						</div>
+					</c:when>
+				</c:choose>
 			</div>
 		</div>
 	</div>
@@ -292,7 +461,7 @@
 				<div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1">
 					<h5>Links</h5>
 					<ul class="list-unstyled">
-						<li><a href="#">Home</a></li>
+						<li><a href="/home">Home</a></li>
 						<li><a href="#">About</a></li>
 						<li><a href="#">Menu</a></li>
 						<li><a href="#">Contact</a></li>

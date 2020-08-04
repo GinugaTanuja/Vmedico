@@ -37,25 +37,3 @@ body {
 	background-color: #512DA8;
 }
 */
-.row-header {
-	margin: 0px auto;
-	padding: 0px;
-}
-
-.row-content {
-	margin: 0px auto;
-	padding: 50px 0px 50px 0px;
-	border-bottom: 1px ridge;
-	min-height: 400px;
-}
-
-.container-images {
-	width: 50%;
-	margin: 0 auto;
-	text-align: center
-}
-
-.container-inages span {
-	width: 30%;
-	margin: 0 1%;
-}

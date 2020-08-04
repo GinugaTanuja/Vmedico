@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.Vmedico.model.User;
 import com.Vmedico.model.admin;
 import com.Vmedico.model.doctor;
+import com.Vmedico.model.hospital;
 import com.Vmedico.services.AdminService;
 import com.Vmedico.services.DoctorService;
+import com.Vmedico.services.HospitalService;
 import com.Vmedico.services.UserService;
 
 @Controller
@@ -28,6 +30,8 @@ public class VmedicoController {
 	private DoctorService doctorService;
 	@Autowired
 	private AdminService adminService;
+	@Autowired
+	private HospitalService hospitalService;
 
 	@RequestMapping({ "/home", "/" })
 	public String Home(HttpServletRequest request) {
@@ -101,7 +105,7 @@ public class VmedicoController {
 		}
 
 	}
-	
+
 	@RequestMapping("/addDoctor")
 	public String addDoctor(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_ADDDOCTOR");
@@ -109,7 +113,8 @@ public class VmedicoController {
 	}
 
 	@PostMapping("/save-doctor")
-	public String registerdoctor(@ModelAttribute doctor doctor, BindingResult bindingResult, HttpServletRequest request) {
+	public String registerdoctor(@ModelAttribute doctor doctor, BindingResult bindingResult,
+			HttpServletRequest request) {
 		doctorService.saveMyDoctor(doctor);
 		request.setAttribute("mode", "MODE_ADDDOCTOR");
 
@@ -117,27 +122,71 @@ public class VmedicoController {
 		request.setAttribute("mode", "MODE_SHOWDOCTOR");
 		return "adminPage";
 	}
-	
-	@GetMapping("/show-doctors")
-	public String showAllDoctors( HttpServletRequest request) {
+
+	@GetMapping("/show-doctor")
+	public String showAllDoctor(HttpServletRequest request) {
 		request.setAttribute("doctors", doctorService.showAllDotors());
 		request.setAttribute("mode", "MODE_SHOWDOCTOR");
 		return "adminPage";
 	}
 
 	@RequestMapping("/delete-doctor")
-	public String deleteDoctor(@RequestParam int duprn,HttpServletRequest request) {
+	public String deleteDoctor(@RequestParam int duprn, HttpServletRequest request) {
 		doctorService.deleteMyDoctor(duprn);
 		request.setAttribute("doctors", doctorService.showAllDotors());
 		request.setAttribute("mode", "MODE_SHOWDOCTOR");
 		return "adminPage";
 	}
-	
+
 	@RequestMapping("/edit-doctor")
-	public String editDoctor(@RequestParam int duprn,HttpServletRequest request) {
+	public String editDoctor(@RequestParam int duprn, HttpServletRequest request) {
 		request.setAttribute("doctor", doctorService.updateDoctor(duprn));
 		request.setAttribute("mode", "MODE_EDITDOCTOR");
 		return "adminPage";
 	}
-	
+
+	@RequestMapping("/addHospital")
+	public String addHospital(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_ADDHOSPITAL");
+		return "adminPage";
+	}
+
+	@PostMapping("/save-hospital")
+	public String registerhospital(@ModelAttribute hospital hospital, BindingResult bindingResult,
+			HttpServletRequest request) {
+		hospitalService.saveMyHospital(hospital);
+		request.setAttribute("mode", "MODE_ADDHOSPITAL");
+
+		request.setAttribute("hospitals", hospitalService.showAllHospitals());
+		request.setAttribute("mode", "MODE_SHOWHOSPITAL");
+		return "adminPage";
+	}
+
+	@GetMapping("/show-hospital")
+	public String showAllHospitl(HttpServletRequest request) {
+		request.setAttribute("hospitals", hospitalService.showAllHospitals());
+		request.setAttribute("mode", "MODE_SHOWHOSPITAL");
+		return "adminPage";
+	}
+
+	@RequestMapping("/delete-hospital")
+	public String deleteHospital(@RequestParam int hid, HttpServletRequest request) {
+		hospitalService.deleteMyHospital(hid);
+		request.setAttribute("hospitals", hospitalService.showAllHospitals());
+		request.setAttribute("mode", "MODE_SHOWHOSPITAL");
+		return "adminPage";
+	}
+
+	@RequestMapping("/edit-hospital")
+	public String editHospital(@RequestParam int hid, HttpServletRequest request) {
+		request.setAttribute("hospital", hospitalService.updateHospital(hid));
+		request.setAttribute("mode", "MODE_EDITHOSPITAL");
+		return "adminPage";
+	}
+
+	@RequestMapping("/hospital")
+	public String Hospital(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HOSPITAL");
+		return "hospitalPage";
+	}
 }
