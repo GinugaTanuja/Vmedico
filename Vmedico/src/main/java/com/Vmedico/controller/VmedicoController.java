@@ -74,7 +74,7 @@ public class VmedicoController {
 
 	@RequestMapping("/login-doctor")
 	public String LoginDoctor(@ModelAttribute doctor doctor, HttpServletRequest request) {
-		if (doctorService.findByDusernameAndDpassword(doctor.getDusername(), doctor.getDpassword()) != null) {
+		if (doctorService.findByDuprnAndDpassword(doctor.getDuprn(), doctor.getDpassword()) != null) {
 			return "doctorPage";
 		} else {
 			request.setAttribute("error", "Invalid username or password. Please enter valid Username or Password");
@@ -139,4 +139,5 @@ public class VmedicoController {
 		request.setAttribute("mode", "MODE_EDITDOCTOR");
 		return "adminPage";
 	}
+	
 }

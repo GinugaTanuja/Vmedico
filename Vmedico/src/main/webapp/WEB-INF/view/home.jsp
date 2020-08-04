@@ -177,6 +177,7 @@
 							</div>
 						</div>
 					</div>
+					</div>
 			</c:when>
 			<c:when test="${mode=='MODE_REGISTER' }">
 				<div class="container text-center">
@@ -292,13 +293,14 @@
 							</div>
 						</c:if>
 						<div class="form-group">
-							<label class="control-label col-md-3">Doctor Username</label>
+							<label class="control-label col-md-3">Doctor UPRN </label>
 							<div class="col-md-7">
 								<input type="text" class="form-control"
-									placeholder="Enter your username" name="dusername"
-									value="${doctor.dusername }" />
+									placeholder="Enter your uprn" name="duprn"
+									value="${doctor.duprn }" />
 							</div>
 						</div>
+						
 						<div class="form-group">
 							<label class="control-label col-md-3">Doctor Password</label>
 							<div class="col-md-7">

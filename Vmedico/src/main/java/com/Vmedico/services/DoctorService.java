@@ -43,8 +43,10 @@ public class DoctorService {
 		doctorRepository.deleteById(duprn);
 	}
 
-	public doctor findByDusernameAndDpassword(String dusername, String dpassword) {
-		return doctorRepository.findByDusernameAndDpassword(dusername, dpassword);
+	public doctor findByDuprnAndDpassword(int duprn, String dpassword) {
+		return doctorRepository.findByDuprnAndDpassword(duprn, dpassword);
 	}
+	
+
 
 }
