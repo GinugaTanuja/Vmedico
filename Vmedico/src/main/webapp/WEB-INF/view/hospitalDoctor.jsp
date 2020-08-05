@@ -45,118 +45,44 @@
 			</div>
 		</nav>
 	</div>
-
 	<c:choose>
-		<c:when test="${mode=='MODE_HOSPITAL' }">
-			<div class="container" id="pospitaldiv">
-				<div class="jumbotron text-center">
-					<h1>Proudly present our hospitals</h1>
-					<h3>By Vmedico</h3>
+		<c:when test="${mode=='MODE_SHOWHOSPITALDOCTOR' }">
+			<div class="container text-center" id="taskDiv">
+				<h3> Doctors available </h3>
+				<hr>
+				<div class="table-responsive text-align-center">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>UPRN</th>
+								<th>Username</th>
+								<th>Age</th>
+								<th>Gender</th>
+								<th>Specialization</th>
+								<th>Working hospital id</th>
+								<th>E-mail</th>
+								<th>Contact no</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="doctor" items="${doctors}">
+								<tr>
+									<td><c:out value="${doctor.duprn}" /></td>
+									<td><c:out value="${doctor.dusername}" /></td>
+									<td><c:out value="${doctor.dage}" /></td>
+									<td><c:out value="${doctor.dgender}" /></td>
+									<td><c:out value="${doctor.dspecialization}" /></td>
+									<td><c:out value="${doctor.dworkinghospitalid}" /></td>
+									<td><c:out value="${doctor.demail}" /></td>
+									<td><c:out value="${doctor.dcontactno}" /></td>
+									</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</c:when>
 	</c:choose>
-	<hr>
-
-
-	<div class="container">
-		<h2>Our Hospitals</h2>
-
-		<div class="panel-group" id="accordion">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion"
-							href="#collapse1"><strong>Yashodha hospital</strong></a>
-					</h4>
-				</div>
-				<div id="collapse1" class="panel-collapse collapse in">
-					<div class="panel-body">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-4">
-									<a href="https://www.yashodahospitals.com/"><img
-										src="/images/Yashoda-Hospital-Logo.jpg"
-										style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid gray"></a>
-								</div>
-								<div class="col-sm-4">
-									<a href="https://www.yashodahospitals.com/"><strong>Yashoda
-											hospital</strong></a> <br> Hospital details :<br>
-									Malakpet,Hyderabad<br> yashoda@gmail.com<br>
-									9550068568<br>
-								</div>
-								<div class="col-sm-4">
-									<a href="/show-hospitaldoctor?dworkinghospitalid=1011200130" style="font-size: 30px;text-decoration: none;">
-										Check our doctors</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion"
-							href="#collapse2"><strong>Omni Hospital</strong></a>
-					</h4>
-				</div>
-				<div id="collapse2" class="panel-collapse collapse">
-					<div class="panel-body">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-4">
-									<a href="https://omnihospitals.in/"><img
-										src="/images/omni-hospital-logo.jpg"
-										style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid gray"></a>
-								</div>
-								<div class="col-sm-4">
-									<a href="https://omnihospitals.in/"><strong>Yashoda
-											hospital</strong></a> <br> Hospital details :<br>
-									Kothapet,Hyderabad<br> omni@gmail.com<br> 9550068368<br>
-								</div>
-								<div class="col-sm-4">
-									<a href="/show-hospitaldoctor?dworkinghospitalid=1011200150" style="font-size: 30px;text-decoration: none;">
-										Check our doctors</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion"
-							href="#collapse3"><strong>Orchid hospital</strong></a>
-					</h4>
-				</div>
-				<div id="collapse3" class="panel-collapse collapse">
-					<div class="panel-body">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-4">
-									<a href="http://www.theorchidhospital.com/about.php"><img
-										src="/images/orchid-hospital-logo.jpg"
-										style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid gray"></a>
-								</div>
-								<div class="col-sm-4">
-									<a href="http://www.theorchidhospital.com/about.php"><strong>Yashoda
-											hospital</strong></a> <br> Hospital details :<br>
-									chaitanyapuri,Hyderabad<br> orchid@gmail.com<br> 9550068683<br>
-								</div>
-								<div class="col-sm-4">
-									<a href="/show-hospitaldoctor?dworkinghospitalid=1011200170" style="font-size: 30px;text-decoration: none;">
-										Check our doctors</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 
 	<hr>
 	<footer class="row-footer">

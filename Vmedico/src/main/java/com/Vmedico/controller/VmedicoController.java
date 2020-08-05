@@ -189,4 +189,11 @@ public class VmedicoController {
 		request.setAttribute("mode", "MODE_HOSPITAL");
 		return "hospitalPage";
 	}
+	@GetMapping("/show-hospitaldoctor")
+	public String showAllHospitalDoctor( @RequestParam int dworkinghospitalid,HttpServletRequest request) {
+		request.setAttribute("doctors", doctorService.showAllHospitalDotors(dworkinghospitalid));
+		request.setAttribute("mode", "MODE_SHOWHOSPITALDOCTOR");
+		return "hospitalDoctor";
+	}
+	
 }

@@ -10,7 +10,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Expires" content="sat, 01 Dec 1501 00:00:00 GMT">
-<title>Vmedico | Home</title>
+<title>Vmedico | Admin Portal</title>
 
 <link href="static/css/bootstrap.min.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet">
@@ -49,7 +49,7 @@
 					<li><a href="/addDoctor"><span
 							class="glyphicon glyphicon-plus"></span>&nbsp;Add a doctor's
 							detail</a></li>
-					<li><a href="/show-doctors"><span
+					<li><a href="/show-doctor"><span
 							class="glyphicon glyphicon-th-large"></span>&nbsp;Edit / remove
 							doctor's detail</a></li>
 					<hr>

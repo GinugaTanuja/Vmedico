@@ -107,7 +107,7 @@
 						class="sr-only">Next</span>
 					</a>
 				</div>
-
+				<hr>
 				<!-- hospital , health care providers & testing labs  -->
 
 				<div class="container">
@@ -132,7 +132,7 @@
 							</div>
 						</div>
 					</div>
-
+					<hr>
 					<div class="row row-content align-items-center">
 						<div class="col-sm-4 col-md-3">
 							<h3>Health care services</h3>
@@ -155,8 +155,7 @@
 							</div>
 						</div>
 					</div>
-
-
+					<hr>
 					<div class="row row-content align-items-center">
 						<div class="col-sm-4 col-md-3 flex-last">
 							<h3>Testing laboratories</h3>
@@ -177,7 +176,7 @@
 							</div>
 						</div>
 					</div>
-					</div>
+				</div>
 			</c:when>
 			<c:when test="${mode=='MODE_REGISTER' }">
 				<div class="container text-center">
@@ -300,7 +299,7 @@
 									value="${doctor.duprn }" />
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label class="control-label col-md-3">Doctor Password</label>
 							<div class="col-md-7">

@@ -42,6 +42,14 @@ public class DoctorService {
 	public void deleteMyDoctor(int duprn) {
 		doctorRepository.deleteById(duprn);
 	}
+	
+	public List<doctor> showAllHospitalDotors(int dworkinghospitalid) {
+		List<doctor> doctors = new ArrayList<doctor>();
+		for (doctor doctor : doctorRepository.findByDworkinghospitalid(dworkinghospitalid)) {
+			doctors.add(doctor);
+		}
+		return doctors;
+	}
 
 	public doctor findByDuprnAndDpassword(int duprn, String dpassword) {
 		return doctorRepository.findByDuprnAndDpassword(duprn, dpassword);
