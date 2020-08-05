@@ -94,9 +94,13 @@
 											placeholder="Enter your email">
 									</div>
 									<div class="form-group">
-										<label>Hospital name</label> <input type="text"
-											class="form-control" name="hospitalname"
-											placeholder="Enter hospital name">
+										<label>Hospital name</label> <select
+											class="browser-default custom-select" name="hospitalname">
+											<option selected>Select your hospital</option>
+											<option value="omni hospital">Omni hospital</option>
+											<option value="orchid hospital">Orchid hospital</option>
+											<option value="yashoda hospital">Yashoda hospital</option>
+										</select>
 									</div>
 									<div class="form-group">
 										<label for="content">Patient prescription</label>
@@ -104,9 +108,13 @@
 											name="patientprescription"></textarea>
 									</div>
 									<div class="form-group">
-										<label>Next appointment slot</label> <input type="text"
-											class="form-control" name="patientnextslot"
-											placeholder="Enter among morning / afternoon / evening">
+										<label>Next appointment slot</label> <select
+											class="browser-default custom-select" name="patientnextslot">
+											<option selected>Select your slot</option>
+											<option value="morning">morning slot (9am to 11am)</option>
+											<option value="afternoon">afternoon slot (12pm to 3pm)</option>
+											<option value="evening">evening slot (5pm to 8pm)</option>
+										</select>
 									</div>
 									<div class="form-group">
 										<label>Next appointment date</label> <input type="text"
