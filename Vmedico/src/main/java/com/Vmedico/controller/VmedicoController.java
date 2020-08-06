@@ -19,6 +19,7 @@ import com.Vmedico.model.hospital;
 import com.Vmedico.services.AdminService;
 import com.Vmedico.services.DoctorService;
 import com.Vmedico.services.HospitalService;
+import com.Vmedico.services.PrescriptionAndAppointmentService;
 import com.Vmedico.services.UserService;
 
 @Controller
@@ -32,6 +33,8 @@ public class VmedicoController {
 	private AdminService adminService;
 	@Autowired
 	private HospitalService hospitalService;
+	@Autowired
+	private PrescriptionAndAppointmentService prescriptionAndAppointmentService;
 
 	@RequestMapping({ "/home", "/" })
 	public String Home(HttpServletRequest request) {
@@ -194,6 +197,24 @@ public class VmedicoController {
 		request.setAttribute("doctors", doctorService.showAllHospitalDotors(dworkinghospitalid));
 		request.setAttribute("mode", "MODE_SHOWHOSPITALDOCTOR");
 		return "hospitalDoctor";
+	}
+	
+	@GetMapping("/show-myprescription")
+	public String showMyPrescription( @RequestParam String patientusername,HttpServletRequest request) {
+		request.setAttribute("prescriptionAndAppointmentServices", prescriptionAndAppointmentService.showMyPrescription(patientusername));
+		request.setAttribute("mode", "MODE_SHOWPRESCRIPTION");
+		return "prescription";
+	}
+	
+	@RequestMapping("/healthcareproviders")
+	public String HealthCareProviders(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HEALTHCAREPROVIDERS");
+		return "healthcareprovidersPage";
+	}
+	@RequestMapping("/testinglabs")
+	public String TestingLabs(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_TESTINGLABS");
+		return "testinglabsPage";
 	}
 	
 }

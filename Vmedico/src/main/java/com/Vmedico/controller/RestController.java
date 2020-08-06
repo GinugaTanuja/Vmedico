@@ -18,11 +18,11 @@ public class RestController {
 		return "Rest con";
 	}*/
 	
-	@GetMapping("/saveuser")
+	/*@GetMapping("/saveuser")
 	public String saveUser(@RequestParam String pusername,@RequestParam int page, @RequestParam String pgender, @RequestParam String pbloodgroup, @RequestParam String paddress, @RequestParam String pemail, @RequestParam String pcontactno, @RequestParam String ppassword) {
 		
 		User user = new User(pusername, page, pgender, pbloodgroup, paddress, pemail, pcontactno, ppassword);
 		userService.saveMyUser(user);
 		return "User Saved";
-	}
+	}*/
 }

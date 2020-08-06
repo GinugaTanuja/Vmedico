@@ -135,7 +135,7 @@
 					<hr>
 					<div class="row row-content align-items-center">
 						<div class="col-sm-4 col-md-3">
-							<h3>Health care services</h3>
+							<a href="/healthcareproviders" style="font-size: 30px;">Health care services</a>
 						</div>
 						<div class="col-sm col-md">
 							<div class="media">
@@ -158,7 +158,7 @@
 					<hr>
 					<div class="row row-content align-items-center">
 						<div class="col-sm-4 col-md-3 flex-last">
-							<h3>Testing laboratories</h3>
+							<a href="/testinglabs" style="font-size: 30px;">Testing laboratories</a>
 						</div>
 						<div class="col-sm col-md flex-first">
 							<div class="media">
