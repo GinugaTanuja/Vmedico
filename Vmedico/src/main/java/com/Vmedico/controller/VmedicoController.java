@@ -192,29 +192,32 @@ public class VmedicoController {
 		request.setAttribute("mode", "MODE_HOSPITAL");
 		return "hospitalPage";
 	}
+
 	@GetMapping("/show-hospitaldoctor")
-	public String showAllHospitalDoctor( @RequestParam int dworkinghospitalid,HttpServletRequest request) {
+	public String showAllHospitalDoctor(@RequestParam int dworkinghospitalid, HttpServletRequest request) {
 		request.setAttribute("doctors", doctorService.showAllHospitalDotors(dworkinghospitalid));
 		request.setAttribute("mode", "MODE_SHOWHOSPITALDOCTOR");
 		return "hospitalDoctor";
 	}
-	
+
 	@GetMapping("/show-myprescription")
-	public String showMyPrescription( @RequestParam String patientusername,HttpServletRequest request) {
-		request.setAttribute("prescriptionAndAppointmentServices", prescriptionAndAppointmentService.showMyPrescription(patientusername));
+	public String showMyPrescription(@RequestParam String patientusername, HttpServletRequest request) {
+		request.setAttribute("prescriptionAndAppointmentServices",
+				prescriptionAndAppointmentService.showMyPrescription(patientusername));
 		request.setAttribute("mode", "MODE_SHOWPRESCRIPTION");
 		return "prescription";
 	}
-	
+
 	@RequestMapping("/healthcareproviders")
 	public String HealthCareProviders(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_HEALTHCAREPROVIDERS");
 		return "healthcareprovidersPage";
 	}
+
 	@RequestMapping("/testinglabs")
 	public String TestingLabs(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_TESTINGLABS");
 		return "testinglabsPage";
 	}
-	
+
 }
