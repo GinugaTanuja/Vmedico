@@ -37,6 +37,7 @@
 					<li><a href="/doctorlogin">Login as doctor</a></li>
 					<li><a href="/register">New Registration</a></li>
 					<li><a href="/show-users">All Users</a></li>
+					<li style="float: right;"><a href="/home">Logout</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -54,15 +55,7 @@
 							href="#bookAppointment">Book doctor appointment</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="#myprescription">My prescriptions</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Section
-								3</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#section31">dropdown-item 1</a> <a
-									class="dropdown-item" href="#section32">dropdown-item 2</a>
-							</div></li>
-						<li class="nav-item"><a class="nav-link" href="#section4">Section
-								4</a></li>
+
 					</ul>
 				</nav>
 
@@ -138,21 +131,6 @@
 						prescription</a>
 
 				</div>
-			</div>
-
-			<div id="section31">
-				<h1>This is Section 3.1</h1>
-				<p>Content for section #3.1</p>
-			</div>
-
-			<div id="section32">
-				<h1>This is Section 3.2</h1>
-				<p>Content for section #3.2</p>
-			</div>
-
-			<div id="section4">
-				<h1>This is Section 4</h1>
-				<p>Content for section #4</p>
 			</div>
 
 		</div>

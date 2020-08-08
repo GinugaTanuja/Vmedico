@@ -37,6 +37,7 @@
 					<li><a href="/doctorlogin">Login as doctor</a></li>
 					<li><a href="/register">New Registration</a></li>
 					<li><a href="/adminlogin">Admin</a></li>
+					<li style="float: right;"><a href="/home">Logout</a></li>
 				</ul>
 			</div>
 		</nav>
